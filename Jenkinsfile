@@ -51,17 +51,17 @@ pipeline {
         stage('cleanup containers'){
             steps{
                 sh '''
-                    if docker container ls -a | grep app ;
+                    if docker container ls -a | grep appimg ;
                     then 
-                        docker container stop app
-                        docker container rm app
+                        docker container stop appimg
+                        docker container rm appimg
                     fi
                 '''
                 }
             }
         stage('deploy image'){
             steps{
-                sh 'docker run -d -p 4000:80 --name app appimg'
+                sh 'docker run -p 4000:80 pascarusilviu/appimg'
                 sleep 10
                 sh 'curl -k localhost:4000'
             }
