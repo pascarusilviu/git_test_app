@@ -3,7 +3,7 @@ pipeline {
     environment {
         CI = 'true'
         registry = "ngciprian/appimg"
-        registryCredential = 'dockerhub'
+        registryCredential = 'dockerHub'
         dockerImage = ''
     }
     stages {
