@@ -48,6 +48,8 @@ pipeline {
                 }
             }
         }
+
+   /*
         stage('cleanup containers'){
             steps{
                 sh '''
@@ -59,6 +61,9 @@ pipeline {
                 '''
                 }
             }
+
+		*/
+
         stage('deploy image'){
             steps{
                 sh 'docker run -d -p 4000:80 pascarusilviu/appimg'
