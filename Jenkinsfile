@@ -15,7 +15,7 @@ pipeline {
         stage('test') {
             steps {
                 sh 'nohup npm start &'
-                sleep 10
+                sleep 11
                 sh 'curl -k localhost:3000'
             }
         }
@@ -48,8 +48,6 @@ pipeline {
                 }
             }
         }
-
-
         stage('cleanup containers'){
             steps{
                 sh '''
@@ -61,9 +59,6 @@ pipeline {
                 '''
                 }
             }
-
-
-
         stage('deploy image'){
             steps{
                 sh 'docker run -d -p 4000:80 pascarusilviu/appimg'
