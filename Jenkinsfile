@@ -48,17 +48,6 @@ pipeline {
                 }
             }
         }
-        stage('cleanup containers'){
-            steps{
-                sh '''
-                    if docker container ls -a | grep appimg ;
-                    then 
-                        docker container stop appimg
-                        docker container rm appimg
-                    fi
-                '''
-                }
-            }
         stage('deploy image'){
             steps{
                 sh 'docker run -d -p 4000:80 pascarusilviu/appimg'
