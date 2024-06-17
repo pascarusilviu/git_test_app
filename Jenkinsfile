@@ -61,7 +61,7 @@ pipeline {
             }
         stage('deploy image'){
             steps{
-                sh 'docker run -p 4000:80 pascarusilviu/appimg'
+                sh 'docker run -d -p 4000:80 pascarusilviu/appimg'
                 sleep 10
                 sh 'curl -k localhost:4000'
             }
