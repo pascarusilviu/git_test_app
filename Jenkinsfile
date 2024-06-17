@@ -49,7 +49,7 @@ pipeline {
             }
         }
 
-   /*
+
         stage('cleanup containers'){
             steps{
                 sh '''
@@ -62,7 +62,7 @@ pipeline {
                 }
             }
 
-		*/
+
 
         stage('deploy image'){
             steps{
